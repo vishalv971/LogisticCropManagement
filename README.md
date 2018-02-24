@@ -26,13 +26,13 @@ This repo contains the codebase of the project done for the HackerEarth's Rural 
    - Run "sudo npm install" to install all the node packages required.
    - Run "node app.js" and navigate to http://localhost:3000/
    - There are three kinds of users: Farmers, Governmental Agency, Admin.
-   - <b> Farmer Credentials:</b> Username: A  Password: A123
-   - <b> Governmental Agency Credentials:</b> Username: B  Password: B123
-   - <b> Admin Credentials:</b> Username: admin  Password: admin
-   - Incase you have logged in as a farmer or a government agency, then you'll be prompted to schedule a delivery/pickup for a designated destination.    
+   - <b> Farmer Credentials:</b> Username: A <b>|</b> Password: A123
+   - <b> Governmental Agency Credentials:</b> Username: B <b>|</b> Password: B123
+   - <b> Admin Credentials:</b> Username: admin <b>|</b> Password: admin
+   - Incase you have logged in as a farmer or a government agency, then you'll be prompted to schedule a delivery/pickup for a designated destination.
    - Click on Submit.
    - The next page will brief you about, the ride you just confirmed. From here on you will be able to track your ride.
-   
+   - Incase you are logged in as an admin, you will be able to monitor your rides and modify them. 
 --------------------------------------------------------------------------------
 
 ### Screenshots
@@ -48,6 +48,7 @@ This repo contains the codebase of the project done for the HackerEarth's Rural 
 <p align="center"><img width="80%" src="/Screenshots/Current Location of Truck with Route to Destination.png" /></p>
 
 --------------------------------------------------------------------------------
+<b> Deleting a ride </b>
 <p align="center"><img width="80%" src="/Screenshots/Deleting Ride Admin.png" /></p>
 
 --------------------------------------------------------------------------------
