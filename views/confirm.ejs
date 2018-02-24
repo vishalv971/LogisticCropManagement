@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Confirmation</title>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script>  
+      <style type="text/css">
+            p.padding {
+                padding-left: 2cm;
+            }
+            tab1{
+                padding-left: 3em;
+            }
+      </style>
+   </head>
+   <body class="blue lighten-5">
+
+<br>
+
+<div class="container">
+          <center><h2 class="padding"> Confirmed Rides </h2></center>  
+                  <div class="card black">
+                    <div class="card-content white-text" >
+                      <span class="card-title"><center>Details</center></span>
+                      <p><p style="float:left">Source:<tab1></tab1></p> <%= a %></p>
+                      <br>
+                      <br>
+                      <br>
+                      <p><p style="float:left">Destination:<tab1></tab1></p> <%= b %></p>
+                    </div>
+                    <div class="progress white">
+                        <div class="indeterminate"></div>
+                    </div>
+                    
+                    <div class="card-action">
+                        <form method="POST" action="/rtlTracking">
+                            <center>
+                                <button class="btn waves-effect waves-light" style="float:right" type="submit" name="action">Track
+                                <i class="material-icons right">send</i>
+                                </button>
+                            </center>
+                        </form>
+                        <form  action="/loggedIn/farmer">
+                            <center>
+                                <button class="btn waves-effect waves-light " style="float:left" type="submit" name="action">Back
+                               </button>
+                           </center>
+                        </form>
+                    </div>
+                    </center>
+                    <br><br>
+                  </div>
+</div>
+</body>
+</html>

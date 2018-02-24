@@ -1,0 +1,128 @@
+<html>
+	<head>
+            <meta name="mobile-web-app-capable" content="yes">
+            <meta name="viewport" content="width=device-width, user-scalable=no" />
+            <meta charset="utf-8">
+            <title>Admin Page</title>
+            <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+            <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+         	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+         	<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>         
+         	<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    		</script>
+
+    		<style type="text/css">
+                tab1{
+                    padding-left: 4em;
+                }
+            </style>
+
+    </head>
+    <body class="blue lighten-5" >
+    	<center> <h2> Admin Page </h2> </center>
+
+    <div class="container">
+		<div ng-app="sa_display" ng-controller="controller" ng-init="display_data()">
+		<table class="striped bordered" id="tID">
+			<tr>
+				<th>ID</th>
+				<th>Source</th>
+				<th>Destination</th>
+				<th>Accepted Rides</th>
+			</tr>
+			<div>
+				<tr ng-repeat="x in names track by $index">
+				<td contenteditable="true" class="s1">{{x.id}}</td>
+				<td contenteditable="true" class="s4">{{x.Source}}</td>
+				<td contenteditable="true" class="s4">{{x.Destination}}</td>
+				<td contenteditable="true" class="s3">{{x.AcceptedRide}}</td>
+			</tr>	
+			</div>
+			
+		</table>
+
+		<br>
+		<br>
+		<center>
+			<button class="btn btn primary" type="submit" name="update" onclick="u1()"> Update </button> 
+			<tab1></tab1><tab1></tab1>
+			<button class="btn btn primary" name="update" onclick="d1()" id="del"> Delete </button>
+		<div id="d" style="display:none;">
+			<br>
+			<br>
+			<label for="d2">Enter ID to delete </label><input type="text" name="d2" ng-model="delm" style="width: 50%;" />
+			<br>
+			<button class="btn btn primary" ng-click="sub()"> Submit</button>
+			<tab1></tab1><tab1></tab1>
+			<button class="btn btn primary" name="ref" onclick="ref()"> Refresh </button>
+		</div>
+	    </center>
+	</div>
+    </div>
+    
+</body>
+<script>
+    var app = angular.module("sa_display", []);
+    app.controller("controller", function($scope, $http,$window) {
+    	$scope.isHidden=true;
+        $scope.display_data = function() {
+            $http.get("/TData")
+                .success(function(data) {
+                    $scope.names = data;
+                });
+        }
+        $scope.sub = function() {
+        	$http({
+        		url: '/Delete',
+        		method: "POST",
+        		data: { 'ID' : $scope.delm }
+		    })
+		    .success(function(response) {
+		            console.log("Successfully Deleted Pls Refresh");
+		    });	
+        }
+
+    });
+    function d1() {
+    	document.getElementById("d").style.display ="block";
+	}
+	function u1() {
+		var oTable = document.getElementById('tID');
+
+	    //gets rows of table
+	    var rowLength = oTable.rows.length;
+	    var arr1 = new Array();
+	    //loops through rows    
+	    for (i = 1; i < rowLength; i++){
+	    	var arr2=new Array();
+	       //gets cells of current row  
+	       var oCells = oTable.rows.item(i).cells;
+
+	       //gets amount of cells of current row
+	       var cellLength = oCells.length;
+
+	       //loops through each cell in current row
+	       for(var j = 0; j < cellLength; j++){
+	              var cellVal = oCells.item(j).innerHTML;
+	              arr2.push(cellVal);
+	           }
+	       arr1.push(arr2);
+    	}
+    	console.log(arr1);
+    	$.ajax({
+	        type: "POST",
+	        url: '/Update',
+	        data: { data : arr1 },
+	        success: function(data)
+	        {
+	            alert("success!");
+	        }
+    	});
+
+    	location.reload();
+	}
+	function ref() {
+		location.reload();
+	}
+</script> 
+</html>
