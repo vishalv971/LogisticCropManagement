@@ -1,4 +1,4 @@
-<p align="center"><img width="40%" src="https://hackerearth-media.global.ssl.fastly.net/media/hackathon/lets-hack-for-rural-development/images/7eed89b6da-cover3_1.jpg" /></p>
+<p align="center"><img width="60%" src="https://hackerearth-media.global.ssl.fastly.net/media/hackathon/lets-hack-for-rural-development/images/7eed89b6da-cover3_1.jpg" /></p>
 
 --------------------------------------------------------------------------------
 
