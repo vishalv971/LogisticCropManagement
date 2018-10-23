@@ -22,6 +22,7 @@ This repo contains the codebase of the project done for the HackerEarth's Rural 
 
    - Clone the GitHub repository "https://github.com/vishalv971/RuralHack".
    - Extract the given files. (This is not needed if the respository is cloned using the CLI)
+   - Make a database named as "DBMSMiniProject".
    - Restore the given SQL file using phpmyadmin.
    - Run "sudo npm install" to install all the node packages required.
    - Run "node app.js" and navigate to http://localhost:3000/
